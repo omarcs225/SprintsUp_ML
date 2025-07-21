@@ -120,19 +120,19 @@ heart-disease-app/
 ## 👨‍⚕️ Input Features
 
 - Age  
-- Sex  
+- Sex  ❌
 - Chest Pain Type (cp)  
 - Resting Blood Pressure  
 - Cholesterol  
-- Fasting Blood Sugar  
-- Resting ECG  
+- Fasting Blood Sugar  ❌
+- Resting ECG  ❌
 - Max Heart Rate  
 - Exercise Induced Angina  
 - ST Depression (oldpeak)  
 - Slope  
-- Number of Major Vessels (ca)  
+- Number of Major Vessels (ca)  ❌
 - Thalassemia (thal)  
-
+there are four inputs are removed as they are not important (Feature Selection)
 ---
 
 ## 📬 Contact
