@@ -39,3 +39,40 @@ joblib.dump(model, "best_model_random_forest.pkl")
 ```bash
 streamlit run app.py
 ```
+## 🌐 Optional: Deploying platforms like Google Colab
+
+###  Step 1: Setting Up Environment
+First things first, let’s install Streamlit and Pyngrok.
+```bash
+!pip install streamlit -q
+!pip install pyngrok
+```
+
+### Step 2: Crafting Your Streamlit App
+Now, let your creativity shine by crafting a captivating Streamlit application. For demonstration purposes, we’ll create a simple “Hello World” app.
+
+```bash
+%%writefile app.py
+import streamlit as st
+
+st.write('# Hello World from ypred, please subscribe')
+st.write('## Run Streamlit on Colab with `pyngrok` ')
+```
+### Step 3: Deploying with Pyngrok Magic
+It’s showtime! Let’s deploy our Streamlit app using Pyngrok’s magic.
+```bash
+from pyngrok import ngrok
+
+# Set authentication token if you haven't already done so
+ngrok.set_auth_token("your_ngrok_auth_token")
+
+# Start Streamlit server on a specific port
+!nohup streamlit run app.py --server.port 5011 &
+
+# Start ngrok tunnel to expose the Streamlit server
+ngrok_tunnel = ngrok.connect(addr='5011', proto='http', bind_tls=True)
+
+# Print the URL of the ngrok tunnel
+print(' * Tunnel URL:', ngrok_tunnel.public_url)
+```
+## Now, go ahead and dazzle the world with your incredible machine-learning models!
