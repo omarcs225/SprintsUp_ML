@@ -26,5 +26,16 @@ pip install -r requirements.txt
 
 ### 3. Add the Model
 Ensure the trained model file best_model_random_forest.pkl is present in the project directory. You can train and save it like this:
+```bash
+import joblib
+from sklearn.ensemble import RandomForestClassifier
+
+model = RandomForestClassifier()
+model.fit(X_train, y_train)
+joblib.dump(model, "best_model_random_forest.pkl")
+```
 
 ### 4. Run the App
+```bash
+streamlit run app.py
+```
