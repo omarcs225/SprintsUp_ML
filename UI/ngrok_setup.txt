@@ -1,0 +1,34 @@
+Streamlit, the go-to framework for building beautiful web apps with Python, paired with Pyngrok, a Python wrapper for ngrok, is the dynamic duo we need. With Pyngrok, we can expose our local Streamlit server to the internet securely.
+
+Step 1: Setting Up Environment
+First things first, let’s install Streamlit and Pyngrok.
+
+!pip install streamlit -q
+!pip install pyngrok
+Step 2: Crafting Your Streamlit App
+Now, let your creativity shine by crafting a captivating Streamlit application. For demonstration purposes, we’ll create a simple “Hello World” app.
+
+%%writefile app.py
+import streamlit as st
+
+st.write('# Hello World from ypred, please subscribe')
+st.write('## Run Streamlit on Colab with `pyngrok` ')
+Step 3: Deploying with Pyngrok Magic
+It’s showtime! Let’s deploy our Streamlit app using Pyngrok’s magic.
+
+from pyngrok import ngrok
+
+# Set authentication token if you haven't already done so
+ngrok.set_auth_token("your_ngrok_auth_token")
+
+# Start Streamlit server on a specific port
+!nohup streamlit run app.py --server.port 5011 &
+
+# Start ngrok tunnel to expose the Streamlit server
+ngrok_tunnel = ngrok.connect(addr='5011', proto='http', bind_tls=True)
+
+# Print the URL of the ngrok tunnel
+print(' * Tunnel URL:', ngrok_tunnel.public_url)
+Voila! With Streamlit and Pyngrok on Google Colab, you’ve successfully deployed your model on the web. Now, sit back, relax, and watch your creation go global. Don’t forget to subscribe to my channel for more blogs and updates!
+
+Now, go ahead and dazzle the world with your incredible machine-learning models!
